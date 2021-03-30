@@ -31,4 +31,12 @@ class Account(object):
     
     @availableLimit.setter
     def availableLimit(self, new_disponible):
-        self.__availableLimit = self.__availableLimit - new_disponible
+        self.__availableLimit -= new_disponible
+
+
+if __name__ == '__main__':
+    account1 = Account(True, 100)
+    print(account1)
+    
+    account2 = Account(False, 500)
+    print(account2)

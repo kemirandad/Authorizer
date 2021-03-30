@@ -1,6 +1,6 @@
 from Entities.account import Account
 
-account_list = []
+account_list = list()
 
 def new_account(params: list):
     active_card, available_limit = params
@@ -10,7 +10,3 @@ def new_account(params: list):
 
 def verify(lista = account_list):
     return lista
-
-if __name__ == '__main__':
-    print(verify())
-    

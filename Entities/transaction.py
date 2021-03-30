@@ -7,25 +7,25 @@ class Transaction():
         self.__time = time
     
     @property
-    def get_merchant(self):
+    def merchant(self):
         return self.__merchant
     
-    @property.setter
-    def set_merchant(self, new_merchant: str):
-        self.__merchant = new_merchant
+    @merchant.setter
+    def merchant(self, merchant):
+        self.__merchant = merchant
     
     @property
-    def get_amount(self):
+    def amount(self):
         return self.__amount
     
-    @property.setter
-    def set_amount(self, new_amount: int):
-        self.__amount = new_amount
+    @amount.setter
+    def amount(self, amount):
+        self.__amount = amount
     
     @property
-    def get_time(self):
+    def time(self):
         return self.__time
     
-    @property.setter
-    def set_time(self, new_time: datetime):
-        self.__time = new_time
+    @time.setter
+    def time(self, time):
+        self.__time = time
