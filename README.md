@@ -22,25 +22,34 @@ from datetime import datetime
 
 ### Instalación 🔧
 
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
-
-_Dí cómo será ese paso_
+_Clona este proyecto_
 
 ```
-Da un ejemplo
+git clone https://github.com/kemirandad/Authorizer.git
 ```
 
-_Y repite_
+_Ejecutar desde la terminal de comandos_
 
 ```
-hasta finalizar
+python3.9 main.py
 ```
 
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
-
+_Ejemplo inputs y outputs_
+```
+input
+{ "transaction": { "merchant": "Burger King", "amount": 20, "time": "2019-02-13T10:00:00.000Z" } }
+output
+{ "account": { "activeCard": true, "availableLimit": 80 }, "violations": [] }
+```
+```
+input
+{ "transaction": { "merchant": "Habbib's", "amount": 90, "time": "2019-02-13T11:00:00.000Z" } }
+output
+{ "account": { "activeCard": true, "availableLimit": 80 }, "violations": [ "insufficient-limit" ] }
+```
 ## Ejecutando las pruebas ⚙️
 
-_Explica como ejecutar las pruebas automatizadas para este sistema_
+_Proximamente_
 
 
 ## Construido con 🛠️
