@@ -4,6 +4,6 @@ class Violation:
     violations_dict = {
             'account': 'account-already-initialized',
             'status': 'inactive-card',
-            'amount': 'insufficient-limit'
+            'amount': 'insufficient-limit',
+            'purchase': 'double-purchase'
         }
-    

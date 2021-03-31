@@ -1,21 +1,22 @@
 from Validations.val_account import is_already_initialized
-from Validations.val_transaction import inactive_card, limit_disponible
+from Validations.val_transaction import status_card, set_disponible, double_transaction, entry_point
 from Entities.violations import Violation
 from Entities.account import Account
 from dataclasses import dataclass
 from Operations import create_account, transaction_history
 
-
 list_violations = []
 
 def violations_account():
-    if len(create_account.account_list) != False:
+    if len(create_account.account_list) > 1:
         violation_account_exist()
 
 def violations_transaction():
-    if len(transaction_history.transaction_list) != False:
+    if len(transaction_history.transaction_list) > 0:
         violation_status()
+        violation_double()
         violation_limit()
+        
         
 def violation_account_exist(lista = list_violations):
     already_exist = is_already_initialized()
@@ -24,18 +25,25 @@ def violation_account_exist(lista = list_violations):
     return lista
         
 def violation_limit(lista = list_violations):
-    without_limit = limit_disponible()
-    if without_limit != None:
-        lista.append(without_limit)
-    return lista
+    status = status_card()
+    if status == True:
+        without_limit = set_disponible()
+        if without_limit != None:
+            lista.append(without_limit)
+        return lista
 
 def violation_status(lista = list_violations):
-    status_false = inactive_card()
-    if status_false != None:
-        lista.append(status_false)
+    status = status_card()
+    if status != True:
+        lista.append(status)
     return lista
-    
+
+def violation_double(lista = list_violations):
+    double_purchase = double_transaction()
+    if double_purchase != None:
+        lista.append(double_purchase)
+    return lista
+
 def run():
     list_violations.clear()
-    violations_account()
     violations_transaction()
