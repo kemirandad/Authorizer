@@ -42,7 +42,7 @@ def printer():
         print(f'\n{console}')
         
         
-def clear_list():
+def clear_list_violations():
     violations_list.list_violations.clear()
     
 def main():
@@ -52,4 +52,4 @@ if __name__ == '__main__':
     while True:
         main()
         printer()
-        clear_list()
+        clear_list_violations()

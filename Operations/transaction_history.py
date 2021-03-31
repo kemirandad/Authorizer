@@ -17,4 +17,3 @@ def new_transaction(params: list):
     
     violations_list.violations_transaction()
     return transaction
-
