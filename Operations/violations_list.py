@@ -15,6 +15,7 @@ def violations_transaction():
     #if len(transaction_history.transaction_list) > 0:
     violation_status()
     violation_double()
+    violation_frequency()
     violation_limit()
     
         
@@ -45,7 +46,7 @@ def violation_double(lista = list_violations):
     return lista
 
 def violation_frequency(lista = list_violations):
-    high_frequency = time_validation_double()
+    high_frequency = time_validation_frequency()
     if high_frequency != None:
         lista.append(high_frequency)
     return lista

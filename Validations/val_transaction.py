@@ -30,11 +30,11 @@ def double_transaction():
     if len(last_amount_list) > 1 and len(last_merchant_list) > 1:
         validation_merchant = last_merchant_list[0] == last_merchant_list[1]
         validation_amount = last_amount_list[0] == last_amount_list[1]
-        if validation_amount == validation_merchant and time_validation_double() == True:
+        if validation_amount == validation_merchant and time_validation_double() == True and my_account.activeCard != False:
             return Violation.violations_dict['purchase']
         
 def time_validation_frequency():
-    
+    my_account = entry_point()
     CONST = 200000000
     
     if len(last_time_list) > 2:
@@ -44,7 +44,7 @@ def time_validation_frequency():
             last_three_purchase[time] = last_three_purchase[time].strftime('%Y%m%d%H%M%S%f')
         times_diff = int(last_three_purchase[0]) - int(last_three_purchase[2])
         
-        if times_diff >= CONST:
+        if times_diff <= CONST and my_account.activeCard != False:
             return Violation.violations_dict['time_frequency']
     
 def time_validation_double():
