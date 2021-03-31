@@ -5,10 +5,9 @@ from Validations.val_account import is_already_initialized
 from Validations import val_transaction
 from Operations import violations_list
 
-
 #Retorna un diccionario
 def deserializer():
-    entry = input('Request...\n')
+    entry = input('\nRequest...\n')
     data = json.loads(entry)
     if len(create_account.account_list) > 0 or 'account' in data:
         return data
@@ -28,13 +27,11 @@ def selector():
 
 def serializer_account(list_details):
     account = create_account.new_account(list_details) 
-    validations_list = violations_list.run()  
     dict_a = {'account':{ 'activeCard': account.activeCard, 'availableLimit': account.availableLimit }, 'violations':violations_list.list_violations }
     return account
 
 def serializer_transaction(list_details):
     transaction = transaction_history.new_transaction(list_details)
-    validations_list = violations_list.run()
     return transaction
 
 def printer():
@@ -43,6 +40,10 @@ def printer():
         dict_a = {'account':{ 'activeCard': my_account.activeCard, 'availableLimit': my_account.availableLimit }, 'violations':violations_list.list_violations }
         console = json.dumps(dict_a)
         print(f'\n{console}')
+        
+        
+def clear_list():
+    violations_list.list_violations.clear()
     
 def main():
     selector()
@@ -51,3 +52,4 @@ if __name__ == '__main__':
     while True:
         main()
         printer()
+        clear_list()

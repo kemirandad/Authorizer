@@ -1,15 +1,20 @@
 from Entities.transaction import Transaction
+from Operations import violations_list
 
-transaction_list = []
-last_amount_list = []
-last_merchant_list = []
+transaction_list = list()
+last_amount_list = list()
+last_merchant_list = list()
+last_time_list = list()
 
 def new_transaction(params: list):
     merchant, amount, time = params
-    print(merchant)
     transaction = Transaction(merchant, amount, time)
+    
+    transaction_list.append(transaction)
     last_amount_list.insert(0, amount)
     last_merchant_list.insert(0, merchant)
-    transaction_list.append(transaction)
+    last_time_list.insert(0, time)
+    
+    violations_list.violations_transaction()
     return transaction
 
