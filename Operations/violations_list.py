@@ -14,8 +14,6 @@ def violations_account():
 def violations_transaction():
     #if len(transaction_history.transaction_list) > 0:
     violation_status()
-    violation_double()
-    violation_frequency()
     violation_limit()
     
         
@@ -28,6 +26,8 @@ def violation_account_exist(lista = list_violations):
 def violation_limit(lista = list_violations):
     status = status_card()
     if status == True:
+        violation_double()
+        violation_frequency()
         without_limit = set_disponible()
         if without_limit != None:
             lista.append(without_limit)
