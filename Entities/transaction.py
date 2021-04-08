@@ -1,6 +1,13 @@
 import datetime
 
 class Transaction():
+    """[summary]
+    Clase Transaction para controlar el flujo de transacciones y/o peticiones por consola
+    Args:
+        merchant ([String]): [Almacena el nombre de la tienda o comercio en el que se realiza la compra]
+        amount ([Integer]): [Almacena la cantidad de dinero devengado por la compra]
+        time ([String]): [Almacena el momento exacto de la compra YYYY-mm-DD-HH-MM-SS-%s]
+    """
     def __init__(self, merchant: str, amount: int, time: datetime):
         self.__merchant = merchant
         self.__amount = amount

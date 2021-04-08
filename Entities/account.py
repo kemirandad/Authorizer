@@ -8,8 +8,14 @@ def singleton(cls):
     return wrap
 
 @singleton
+
 class Account(object):
-    
+    """[summary]
+    Clase Account para implementar un unico objeto usando el patron de diseño Singleton
+    Args:
+        activeCard ([Boolean]): [Determina el estado de la cuenta y si podrá o no hacer una transacción más adelante]
+        availableLimit ([Integer]): [Almacena la cantidad de dinero disponible en la cuenta]
+    """
     def __init__(self, activeCard: bool, availableLimit: int):
         self.__activeCard = activeCard
         self.__availableLimit = availableLimit
