@@ -13,7 +13,7 @@ def entry_point():
 def set_disponible():
     my_account = entry_point()
     amount = last_amount_list[0]
-    if amount > my_account.availableLimit:
+    if amount > my_account.availableLimit: #and len(violations_list.list_violations) == 0:
         return Violation.violations_dict['amount']
     elif amount <= my_account.availableLimit and len(violations_list.list_violations) == 0:
         my_account.availableLimit = amount
@@ -30,8 +30,8 @@ def double_transaction():
     if len(last_amount_list) > 1 and len(last_merchant_list) > 1:
         validation_merchant = last_merchant_list[0] == last_merchant_list[1]
         validation_amount = last_amount_list[0] == last_amount_list[1]
-        if validation_amount == validation_merchant and time_validation_double() == True and my_account.activeCard != False:
-            return Violation.violations_dict['purchase']
+        if validation_amount and validation_merchant and time_validation_double() == True and my_account.activeCard != False:
+            return Violation.violations_dict['time-double']
         
 def time_validation_frequency():
     my_account = entry_point()

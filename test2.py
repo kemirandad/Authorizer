@@ -1,19 +1,7 @@
-from datetime import datetime
+import Tkinter as tk
 
-CONST = 200000000
+window = tk.Tk()
+window.geometry(height = 1280, width = 700)
+title = tk.Label(window, text = "Hello World", bg = "blue")
 
-date = '2019-02-13T10:00:00.000Z'
-date = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S.%fZ')
-date = date.strftime('%Y%m%d%H%M%S%f')
-
-date2 = '2019-02-13T11:00:00.000Z'
-date_number2 = datetime.strptime(date2, '%Y-%m-%dT%H:%M:%S.%fZ')
-date_number2 = date_number2.strftime('%Y%m%d%H%M%S%f')
-
-print(date)
-
-"""
-if int(date_number2[:12]) - int(date_number[:12]) <= CONST:
-    print(True)
-print(False)
-"""
+tk.mainloop()

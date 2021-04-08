@@ -12,7 +12,6 @@ def violations_account():
         violation_account_exist()
 
 def violations_transaction():
-    #if len(transaction_history.transaction_list) > 0:
     violation_status()
     violation_limit()
     

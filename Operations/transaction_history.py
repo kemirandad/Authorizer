@@ -14,6 +14,5 @@ def new_transaction(params: list):
         last_amount_list.insert(0, amount)
         last_merchant_list.insert(0, merchant)
         last_time_list.insert(0, time)
-    
     violations_list.violations_transaction()
     return transaction
