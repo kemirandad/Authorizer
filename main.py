@@ -31,6 +31,10 @@ def selector():
         if 'account' in result:
             list_details = result['account'].values()
             serializer_account(list_details)
+        elif 'activeCard' in result:
+            details = result['activeCard']['active']
+            print(details)
+            serializer_status(details)
         elif 'transaction' in result:
             list_details = result['transaction'].values()
             serializer_transaction(list_details)
@@ -44,9 +48,15 @@ def serializer_account(list_details):
     Returns:
         [Account]: [Retorna un dato de tipo Account]
     """
-    account = create_account.new_account(list_details) 
+    account = create_account.new_account(list_details)
+    
     dict_a = {'account':{ 'activeCard': account.activeCard, 'availableLimit': account.availableLimit }, 'violations':violations_list.list_violations }
     return account
+
+#recibe una lista con unico valor
+def serializer_status(details):
+    status_card = details
+    create_account.change_status(status_card)
 
 def serializer_transaction(list_details):
     """[summary]
@@ -58,6 +68,7 @@ def serializer_transaction(list_details):
     Returns:
         [Transaction]: [Retorna un dato de tipo Transaction]
     """
+    violations_list.violation_status()
     transaction = transaction_history.new_transaction(list_details)
     return transaction
 

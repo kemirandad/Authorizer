@@ -1,6 +1,7 @@
 from Entities.transaction import Transaction
 from Operations import violations_list
 
+
 """[summary]
     Modulo que procesa la petición de una nueva transaccion
 """
@@ -18,6 +19,7 @@ def new_transaction(params: list):
     Returns:
         [Transaction]: [Retorna un objeto de tipo Transaction]
     """
+    
     merchant, amount, time = params
     transaction = Transaction(merchant, amount, time)
     if len(violations_list.list_violations) == 0:

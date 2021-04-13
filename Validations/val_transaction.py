@@ -44,6 +44,7 @@ def status_card():
     my_account = entry_point()
     if my_account.activeCard == False:
         return Violation.violations_dict['status']
+        
     else:
         return True
 

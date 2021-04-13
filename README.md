@@ -49,8 +49,15 @@ output
 ```
 ## Ejecutando las pruebas ⚙️
 
-_Proximamente_
-
+_Prueba unitaria para el método change_status del módulo create_account_
+```
+import unittest
+```
+_Para ejecutar la prueba_
+```
+cd Nu
+python3.9 ./Test/status_change_test.py
+```
 
 ## Construido con 🛠️
 

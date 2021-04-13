@@ -24,7 +24,6 @@ def violations_transaction():
     status de cuenta
     limite no disponible
     """
-    violation_status()
     violation_limit()
     
         
